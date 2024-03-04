@@ -1,0 +1,8 @@
+server:
+  port: 8490
+
+
+  application:
+    name: jic-ke-OFA-Service
+  profiles:
+    active: default
