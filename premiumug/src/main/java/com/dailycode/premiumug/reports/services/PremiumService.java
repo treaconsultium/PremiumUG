@@ -39,7 +39,7 @@ public class PremiumService {
     }
 
     @Scheduled(fixedDelay = 5L)
-    public void fetchPremiumKE (){
+    public void fetchPremiumUG (){
         logger.info("===========Started fetching Premium data==========");
 
         List<String> premiumPayments = premiumsRepo.getReadyPremiums();
@@ -377,7 +377,14 @@ public class PremiumService {
     }
 
     private Optional<PortfolioInterfaceJ> getPortfolio(String entityId) {
-        Optional<PortfolioInterfaceJ> result = premiumsRepo.fetchPortfolio(entityId);
-        return result;
+        Optional<PortfolioInterfaceJ> res = null;
+        try {
+            res = premiumsRepo.fetchPortfolio(entityId);
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return res;
     }
 }

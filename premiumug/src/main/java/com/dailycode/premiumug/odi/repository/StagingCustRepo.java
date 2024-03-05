@@ -14,7 +14,7 @@ import java.util.Optional;
 public interface StagingCustRepo extends JpaRepository<CustomerSTG, Long> {
 
     @Query(value = "SELECT DISTINCT LEGACY_REF1 \n" +
-            "FROM XXJICKE_AR_CUSTOMERS_STG \n" +
+            "FROM XXJICUG_AR_CUSTOMERS_STG \n" +
             "WHERE ORGANIZATION_NAME  =:transferSource \n" +
             "AND LEGACY_REF12 = TO_CHAR(:policyHolderId)\n" +
             "AND LEGACY_REF13 =:policyNumber \n" +
@@ -23,7 +23,7 @@ public interface StagingCustRepo extends JpaRepository<CustomerSTG, Long> {
                            @Param("policyNumber") String policyNumber);
 
     @Query(value = "SELECT count(*) \n" +
-            "           FROM XXJICKE_AR_CUSTOMERS_STG \n" +
+            "           FROM XXJICUG_AR_CUSTOMERS_STG \n" +
             "WHERE \n" +
             "ORGANIZATION_NAME =:operatingUnit\n" +
             "AND CUSTOMER_SITE_NAME =:entityId\n" +
@@ -34,7 +34,7 @@ public interface StagingCustRepo extends JpaRepository<CustomerSTG, Long> {
                             @Param("polNumber") String polNumber, @Param("pin") String pin);
 
     @Query(value = "SELECT legacy_ref20 \n" +
-            "FROM XXJICKE_AR_CUSTOMERS_STG \n" +
+            "FROM XXJICUG_AR_CUSTOMERS_STG \n" +
             "WHERE \n" +
             "ORGANIZATION_NAME =:operatingUnit \n" +
             "AND CUSTOMER_SITE_NAME =:entityId \n" +
@@ -46,7 +46,7 @@ public interface StagingCustRepo extends JpaRepository<CustomerSTG, Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "update xxjicke_ar_customers_stg set legacy_ref20 =:portfolio " +
+    @Query(value = "update xxjicug_ar_customers_stg set legacy_ref20 =:portfolio " +
             "where organization_name =:operatingUnit " +
             "and customer_site_name =:entityId " +
             "and legacy_ref13 =:polNumber " +

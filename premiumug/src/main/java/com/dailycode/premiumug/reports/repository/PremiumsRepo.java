@@ -60,10 +60,11 @@ public interface PremiumsRepo extends JpaRepository<PremiumsModel,Integer> {
     List<String> getReadyPremiums();
 
     @Query(value = "select PolicyId,EffectiveDate,ProductId, \n" +
-            "case when ProductId in (52, 45, 51, 55, 58, 50, 53, 6, 38, 39, 64, 35, 25, 44, 54,67) then '52' \n" +
-            "     when ProductId in (7, 34, 36,47, 59, 60, 61, 65) then '53' \n" +
-            "     when ProductId in (13,15,62,63) then '51' \n" +
-            " else '' end as Portfolio\n" +
+            "case when ProductId in (52,45,51,55,58,50,53,6,38,39,64,35,25,44,54,67,66,17,70) then '52' \n" +
+            "     when ProductId in (7,34,36,47,59,60,61,65,20) then '53' \n" +
+            "     when ProductId in (13,15,62,63,23,18) then '51' \n" +
+            " else '' end as Portfolio," +
+            "PolicyHolderId\n" +
             "from policy where PolicyHolderId =:entityId \n" +
             "and PolicyStatus ='L' and PaymentMethod <> ''", nativeQuery = true)
     Optional<PortfolioInterfaceJ> fetchPortfolio(@Param("entityId") String entityId);

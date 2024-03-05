@@ -90,13 +90,13 @@ public class OdiServices {
                 }
                 else {
                     stagingCustRepo.updatePortfolio(operatingUnit,entityId,polNumber,pin,"53");
-                    productPortfolio = "53";
+                    productPortfolio = "52";
                 }
 
 
             } else {
                 r = 0;
-                productPortfolio ="53";
+                productPortfolio ="52";
             }
 
         }
