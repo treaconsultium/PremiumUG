@@ -247,16 +247,16 @@ public class OFApremiums {
     @Basic
     @Column(name = "INSURED_NAME", nullable = true, length = 240)
     private String insuredName;
-    @Basic
-    @Column(name = "INSURED_CODE", nullable = true, length = 240)
-    private String insuredCode;
-    @Basic
-    @Column(name = "CLAIM_NO", nullable = true, length = 240)
-    private String claimNo;
-    @Basic
-    @Column(name = "DATE_OF_LOSS", nullable = true, length = 240)
-    private String dateOfLoss;
-    @Basic
-    @Column(name = "PRODUCT_DESC", nullable = true, length = 240)
-    private String productDesc;
+//    @Basic
+//    @Column(name = "INSURED_CODE", nullable = true, length = 240)
+//    private String insuredCode;
+//    @Basic
+//    @Column(name = "CLAIM_NO", nullable = true, length = 240)
+//    private String claimNo;
+//    @Basic
+//    @Column(name = "DATE_OF_LOSS", nullable = true, length = 240)
+//    private String dateOfLoss;
+//    @Basic
+//    @Column(name = "PRODUCT_DESC", nullable = true, length = 240)
+//    private String productDesc;
 }

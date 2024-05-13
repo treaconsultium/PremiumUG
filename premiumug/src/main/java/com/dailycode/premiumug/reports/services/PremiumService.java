@@ -53,7 +53,9 @@ public class PremiumService {
         for (List<String> part: parts) {
             List<PremiumTransInterface> premiumTransactions = premiumsRepo.fetchAllTransactions(part);
             logger.info("===============================Running Segment "+ i++ +" of the Memory=============");
+            System.out.println(premiumTransactions.size());
             for (String journalId: part) {
+                logger.info("Working on Journal ID " + journalId);
                 premiumTransactions.stream()
                         .filter(a -> Objects.equals(a.getJournalId(),journalId))
                         .collect(Collectors.toList())
@@ -366,7 +368,7 @@ public class PremiumService {
         if (countryId.equals("KE")) {
             res = "JHL_KE_IFRS_PL";
         } else if (countryId.equals("UG")) {
-            res = "JHL_UG_IFRS_PL";
+            res = "JHL_UG_MED_PL";
         } else if (countryId.equals("TZ")) {
             res = "JHL_TZ_IFRS_PL";
         }

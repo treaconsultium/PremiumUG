@@ -1,5 +1,5 @@
 server:
-  port: 8490
+  port: 8480
 
 
   application:

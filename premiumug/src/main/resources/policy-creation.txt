@@ -1,0 +1,223 @@
+Authentication
+-->http://integrations.jubileekenya.com:8181/v1/Security/Authentication
+{
+  "UserName": "actisureusername",
+  "Password": "actisurepassword",
+  "Secret": "X0210021",
+  "ActAs": ""
+}
+
+-->http://integrations.jubileekenya.com:8181/v1/Client/AddClientEntity
+Header : x-gravitee-api-key: 2f6864bb-6d16-4ff8-8fe3-1c1fa2d19aba
+Authorization : Bearer Token
+
+CREATE ENTITY
+{
+  "ClientEntityDetails": {
+    "GlobalId": "",
+    "ParentId": 0,
+    "RelationshipDescription": "Unmarried Child",
+    "RelationshipEffectiveDate": "2024-04-04",
+    "Title": "Mr",
+    "FirstName": "Eric",
+    "Surname": "Muiru",
+    "Initials": "",
+    "Gender": "Male",
+    "DateOfBirth": "1990-04-04",
+    "Occupation": "",
+    "Nationality": "Kenya",
+    "ListRoleAdditionalInfo": []
+  }
+}
+
+ADD CONTACTS
+
+-->http://integrations.jubileekenya.com:8181/v1/Client/AddContactDetails
+Header : x-gravitee-api-key: 2f6864bb-6d16-4ff8-8fe3-1c1fa2d19aba
+Authorization : Bearer Token
+
+{
+  "EntityId": 12480752,
+  "ContactDetails": {
+    "Addresses": [
+      {
+        "Territory": "Kenya",
+        "StartDate": "2024-04-04T08:35:35.525Z",
+        "EndDate": "",
+        "AddressLine1": "30125",
+        "AddressLine2": "00100 - NAIROBI GPO",
+        "AddressLine3": "Nairobi",
+        "AddressLine4": "Nairobi County",
+        "PostCode": "",
+        "AddressType": "Postal",
+        "Latitude": 0,
+        "Longitude": 0
+      }
+    ],
+    "Phones": [
+      {
+        "PhoneNumber": "0725479474",
+        "CountryDialCode": "254",
+        "RegionDialCode": "",
+        "PhoneType": "Mobile 1"
+      }
+    ]
+  }
+}
+
+Add Individual Policy
+-->http://integrations.jubileekenya.com:8181/v1/Scheme/AddIndividualPolicy
+Header : x-gravitee-api-key: 15c84b5e-ad2b-4b34-b69a-7f5945600493
+Authorization : Bearer Token 
+
+{
+  "policy": {
+    "policyHolderEntityId": 12480752,
+    "productName": "J-Seniors",
+    "policyStartDate": "2024-01-01T08:00:18.757Z",
+    "policyEffectiveDate": "2024-01-01",
+    "policyRenewalDate": "2025-01-01T08:00:18.757Z",
+    "policyStatus": "Enquiry",
+    "policyNumber": "",
+    "acquisitionChannel": "",
+    "levelOfCover": "Family",
+    "paymentStyle": "Cash/Cheque",
+    "preferredCollectionDay": "",
+    "familyStatusRating": "",
+    "marketingValue": "",
+    "taxAmount": 0,
+    "suppressPriceCalculation": true,
+    "generatePolicyNumber": true,
+    "originalPolicyStartDate": "2024-01-01T08:00:18.757Z",
+    "shortTermPolicy": false,
+    "marketingFree": true,
+    "externalRef": "string",
+    "renewalCount": 0,
+    "reimbursementClaimSubmissionPeriod": 0,
+    "creditClaimSubmissionPeriod": 0,
+    "policyAmount": 0,
+    "policyCoverArea": "Kenya",
+    "policyResidentialTerritory": "Kenya, East Africa Region",
+    "policyCharges": []
+  }
+}
+
+-->http://integrations.jubileekenya.com:8181/v1/Scheme/AddBenefitsToPolicy
+Header : x-gravitee-api-key: 15c84b5e-ad2b-4b34-b69a-7f5945600493
+Authorization : Bearer Token 
+
+ADD BENEFITCATEGORIES
+{
+  "policyId": 174953,
+  "policyEffectiveDate": "2024-01-01",
+  "benefitCategories": [
+    {
+      "webName": "Additional Benefit Options",
+      "benefits": [
+        {
+          "webName": "Premier Outpatient",
+          "salaryBands": []
+        },
+        {
+          "webName": "Premier Dental",
+          "salaryBands": []
+        }
+      ]
+    }
+  ]
+}
+
+-->http://integrations.jubileekenya.com:8181/v1/Scheme/AddBeneficiaryToIndividualPolicy
+Header : x-gravitee-api-key: 15c84b5e-ad2b-4b34-b69a-7f5945600493
+Authorization : Bearer Token 
+
+ADDING DEPENDANTS
+
+{
+  "beneficiary": {
+    "policyId": 174953,
+    "policyEffectiveDate": "2024-01-01",
+    "entityId": 12480753,
+    "originalJoinDate": "2024-04-04T08:00:18.800Z",
+    "joinDate": "2024-04-04T08:00:18.800Z",
+    "terminationDate": "",
+    "terminationReason": "",
+    "pricingAge": 0,
+    "underwritingType": {
+      "description": "FMU",
+      "rate": "100"
+    },
+    "annualSalary": 0,
+    "salaryCurrency": "KES",
+    "sumInsured": 1000000,
+    "productOverrides": [
+      {
+        "componentType": "Product",
+        "webName": "JCare",
+        "attributeName": "Beneficiary Price",
+        "attributeValue": ""
+      }
+    ]
+  }
+}
+
+-->http://integrations.jubileekenya.com:8181/v1/Scheme/AddPolicyAdditionalInfoToPolicy
+Header : x-gravitee-api-key: 15c84b5e-ad2b-4b34-b69a-7f5945600493
+Authorization : Bearer Token 
+
+POLICYADDITIONAL INFO
+{
+  "policyId": 174953,
+  "policyEffectiveDate": "2024-01-01",
+  "policyAdditionalInfoList": [
+    {
+      "key": "PIN Number",
+      "value": "A003552139P"
+    },
+    {
+      "key": "PolicyOnlineAccess",
+      "value": "J1803240005CR"
+    },
+    {
+      "key": "Channel",
+      "value": "Digital Sale"
+    }
+  ]
+}
+
+-->http://integrations.jubileekenya.com:8181/v1/Scheme/AddBusinessSourceToIndividualPolicy
+Header : x-gravitee-api-key: 15c84b5e-ad2b-4b34-b69a-7f5945600493
+Authorization : Bearer Token 
+
+BUSINESS SOURCE ADDITION
+
+{
+  "businessSource": {
+    "policyId": 174953,
+    "policyEffectiveDate": "2024-01-01",
+    "businessSourceWebName": "Tied Agent",
+    "binderDetailWebName": "2013",
+    "disbursementBasis": "Payment Received",
+    "interestedParties": [
+      {
+        "role": "Agent Tied",
+        "entityId": 16974,
+        "initialCommission": {
+          "applySalesTax": true,
+          "amount": "10",
+          "fixed": false,
+          "indemnity": false
+        },
+        "renewalCommission": {
+          "applySalesTax": true,
+          "amount": "10",
+          "fixed": false,
+          "indemnity": false
+        }
+      }
+    ]
+  }
+}
+
+
+
